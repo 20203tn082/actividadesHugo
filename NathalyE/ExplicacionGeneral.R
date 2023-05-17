@@ -44,7 +44,7 @@ days <- function(x){
          Thu = "Thursday",
          Fri = "Friday",
          "Weekend"
-         )
+  )
 }
 
 days("Mon")
@@ -101,41 +101,50 @@ repeat{
     break
   }
 }
-  
-  #set working directory cambia la carpeta donde trabajamos y apunta a la carpeta que indiquemos, esto lo hace lógicamente
-  setwd("C:\\Users\\CC7\\Downloads")
-  maraton <- read.csv("maraton_ny.csv",
-                      header=TRUE,
-                      #si tiene un identificador mi excel
-                      row.names = 1,
-                      sep=",",
-                      dec = "."
-                      )
-  View(maraton)
-  
-  #tipo de variable
-  class(maraton)
-  #el dim devuelve filas y columnas
-  dim(maraton)
-  #devolver los encabezados de las columnas
-  names(maraton)
-  #Estructura.
-  str(maraton)
-  #número de filas y observaciones
-  nrow(maraton)
-  #instalar un paquete, en caso de querer instalar más, se separan por comas
-  install.packages("dplyr")
-  #indico que uso este paquete
-  library("dplyr")
-  glimpse(maraton)
-  #resumen de las columnas del archivo
-  summary(maraton)
-  
-  #Dataframe conjunto de vectores 
-  
-  class(TRUE)
-  class("Hola")
-  class(9)
-  class(9.0)
-  class(c(1,2,3,4,5))
-  class(c("1","3",12))
+
+#set working directory cambia la carpeta donde trabajamos y apunta a la carpeta que indiquemos, esto lo hace lógicamente
+setwd("C:\\Users\\CC7\\Downloads")
+
+maraton <- read.csv("maraton_ny.csv",
+                    header=TRUE,
+                    #si tiene un identificador mi excel
+                    row.names = 1,
+                    sep=",",
+                    dec = "."
+)
+View(maraton)
+
+#tipo de variable
+class(maraton)
+#el dim devuelve filas y columnas
+dim(maraton)
+#devolver los encabezados de las columnas
+names(maraton)
+#Estructura.
+str(maraton)
+#número de filas y observaciones
+nrow(maraton)
+#instalar un paquete, en caso de querer instalar más, se separan por comas
+install.packages("dplyr")
+#indico que uso este paquete
+library("dplyr")
+
+#ESTE HACE LO MISMO QUE EL DE str
+glimpse(maraton)
+#resumen de las columnas del archivo
+summary(maraton)
+
+#Dataframe conjunto de vectores 
+
+class(TRUE)
+class("Hola")
+class(9)
+class(9.0)
+class(c(1,2,3,4,5))
+class(c("1","3",12))
+
+install.packages("RWeka")
+library("RWeka")
+
+datos <- read.arff("CEE_DATA.arff")
+View(datos)

@@ -1,9 +1,9 @@
 {
     "id": "26FA452F",
-    "path": "~/EjerciciosHugo-Nath/NathalyE/ExplicacionGeneral.R",
+    "path": "~/actividadesHugo/NathalyE/ExplicacionGeneral.R",
     "project_path": "ExplicacionGeneral.R",
     "type": "r_source",
-    "hash": "0",
+    "hash": "3275849739",
     "contents": "",
     "dirty": false,
     "created": 1683939129383.0,
@@ -13,15 +13,15 @@
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "134,2",
-        "scrollLine": "0"
+        "cursorPosition": "149,11",
+        "scrollLine": "135"
     },
     "folds": "",
-    "lastKnownWriteTime": 1683944957,
+    "lastKnownWriteTime": 1684285194,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1683944957109,
+    "last_content_update": 1684285194733,
     "read_only": false,
     "read_only_alternatives": []
 }
