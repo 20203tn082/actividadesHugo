@@ -1,0 +1,21 @@
+#DATAFRAME
+#Ejercicio 1
+#Crear un dataframe con los siguientes datos de 3 personas son nombre, edad y sexo
+#Antonio, 40, M
+#Maria, 30,F
+#Juan, 35, M
+nombres <- c('Antonio', 'Maria', 'Juan')
+edades <- c(40,30,35)
+sexo <- c('M', 'F', 'M')
+print('Nombres')
+print(nombres)
+print('Edades')
+print(edades)
+print('Sexo')
+print(sexo)
+
+personas <- data.frame(nombres, edades, sexo)
+print('Personas')
+print(personas)
+
+
