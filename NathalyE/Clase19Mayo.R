@@ -131,4 +131,100 @@ inventario
 
 
 #Selección de elementos de un vector
-inventario[2]
+inventario[2] #Segunda posición del vector inventario
+inventario[1:2] #Devolverá 2 valores, los que se encuentren en esos rangos
+
+#Para seleccionar possiciones que no están contiguas
+inventario[c(1,3)] #Mostrar el 1 y el 3
+inventario[-3] #Mostrar todos menos el 3
+inventario[-(2:3)]
+inventario['manzana']
+
+# Para quitar un elemento específico
+inventario <- inventario[-3] #Vuelve a escribir inventario pero quit la posición 3
+
+#selección por filtrado
+inentario
+inventario [inventario < 10 ] #devolver os valores que su valor sea menor a 10
+inventario [inventario == 6 ] #devolver valor igual a 6
+inventario [inventario %in% c(2,3,6,30)] #valor de pertenencia, valores que sean un 2,3,6,30
+inventario [inventario %in% 2:30 ] #lo mismo de la anterior pero con un rango
+
+View(maraton)
+
+#<pais><estado>
+#------FILA Y COLUMNAS = DATAFRAME
+#Seleccionar una columna individual
+maraton$age #Devuelve os valores de la columna age
+View(maraton$gender)
+
+#Fila 3, columna 4
+maraton[3,4]
+
+#Todas las filas, solo columnas 1 y 5 Cuando son valores discontinuos se pone la C, cuando son seguidos solo se ponen los dos puntos
+maraton[,c(1,5)]
+#Solo fila 1 Y 100, TODAS LAS COLUMNAS
+maraton[c(1,100),]
+
+#10 rimeras filas, 2 primeras columnas
+maraton[1:10, 1:2]
+
+#Filtrar valores que no son consecutivos, se pone la c
+
+#Filas del 1 al 100, todas las columnas
+maraton[1:100,]
+
+#Corredores cyo genero es femenino
+View(maraton[maraton$gender == 'Female',])
+
+max(maraton$age)
+min(maraton$age)
+mean(maraton$age)
+min(maraton$time)
+View(maraton[,-3])
+
+nrow(maraton)
+
+#Conocer ladimensión de un objeto
+dimension <- dim(maraton)
+dimension
+typeof(maraton)
+str(maraton)
+dimension[1] #la dimensión de as filas
+dimension[2] #la dimensión de kas columnas
+dim(maraton)[1]
+
+#Obtener el ran de os valores de una 
+rank(maraton$time)
+rank(inventario) #Ordena de menor a mayor
+inventario
+
+max(maraton$age)
+#Indice donde se encuentra el valro más grande
+which.max(maraton$age) #Obtener la fila en donde se encuentra a edad máxima
+maraton[106,]
+
+which.min(maraton$time) #Obtener la fila en donde se encuentra el tiemp minimo
+maraton[765,]
+
+View(maraton)
+rm(maraton)
+
+#Operaciones con vectores
+
+setwd("C:\\Users\\CC7\\Downloads")
+rentas <- read.csv("house_rental.csv",
+                    header = TRUE,
+                    sep = ",",
+                    dec =".")
+
+View(rentas)
+
+#Cuantas habitaciones tienen las propiedades cuyo precio de renta se encuentra entre 60000 y 80000
+
+nrow(rentas[rentas$Price >= 60000 & rentas$Price <= 80000,])
+
+nrow(rentas)
+
+sum(rentas[rentas$Pricee>60000 & rentas$Price <80000,5])
+sum(rentas[rentas$Price>=60000 & rentas$Price <=80000,5])
