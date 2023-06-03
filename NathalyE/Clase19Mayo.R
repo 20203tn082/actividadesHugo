@@ -228,3 +228,5 @@ nrow(rentas)
 
 sum(rentas[rentas$Pricee>60000 & rentas$Price <80000,5])
 sum(rentas[rentas$Price>=60000 & rentas$Price <=80000,5])
+
+
