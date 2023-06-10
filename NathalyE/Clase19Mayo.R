@@ -229,4 +229,80 @@ nrow(rentas)
 sum(rentas[rentas$Pricee>60000 & rentas$Price <80000,5])
 sum(rentas[rentas$Price>=60000 & rentas$Price <=80000,5])
 
+setwd("C:\\Users\\CC7\\Downloads")
+contaminacion <- read.csv("contaminacion.csv",
+                   header = TRUE,
+                   sep = ",",
+                   dec =".")
+
+View(contaminacion)
+#cometamente llenos
+is.na(contaminacion)
+#los lenos
+complete.cases(contaminacion)
+
+na.omit(contaminacion) #omite las vacías
+
+#que cosas están vacías y eliminaras
+
+#si esta false es que esta lleno y no vacío
+#con alguna celda vacía 
+#izuierda as filas, derecha columnas
+contaminacion[!complete.cases(contaminacion),]
+
+#fila uno, columna 2
+contaminacion[1,2]
+
+
+install.packages("mice")
+library("mice")
+
+
+setwd("C:\\Users\\CC7\\Downloads")
+maraton <- read.csv("maraton_ny.csv",
+                          header = TRUE,
+                          sep = ",",
+                          dec =".")
+
+#mostrar un patron grafico cuantas vacias y cuantas no
+#azul significa que tod leno 1 son azules, rosa que hay algo vacío rosas os 0
+md.pattern(maraton)
+
+md.pattern(contaminacion)
+
+# PREGUNTA EXAMEN longitud de un data frame
+nrow(contaminacion)
+
+duplicated(contaminacion)
+
+#todos menos la duplicada
+
+contaminacion[!duplicated(contaminacion),]
+
+contaminacion[duplicated(contaminacion),]
+
+#si hay datos vacío, no se puede realizar una peración
+sum(contaminacion$cn)
+
+#esto te evita la limpieza
+sum(contaminacion$CN, na.rm = TRUE)
+
+#asignar valores a una columna nueva
+contaminacion$CN_p <- ifelse(is.na(contaminacion$CN), mean(contaminacion$CN, na.rm = TRUE), contaminacion$CN)
+contaminacion
+
+
+
+install.packages("modeest")
+library("modeest")
+
+#crear el data frame
+b <- data.frame(v1=c("a","b","c","d"),v2=c("hola","hola",NA,"adios"))
+b$v2_moda <- ifelse(is.na(b$v2),mfv(b$v2,na_rm = TRUE),b$v2)
+b
+
+
+#EXAMEEEN
+#promedio numéricos, pero nunca cadenas
+#moda para texto o incluso números
 
