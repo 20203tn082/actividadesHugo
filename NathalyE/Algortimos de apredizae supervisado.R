@@ -56,9 +56,9 @@ indices_train <- sample(secuencia, size = tam_train)
 
 #el data set de entrenamiento y prueba no deben contena columna de casficacón
 #AHORA SÍ SACÓ LAS FLAS
-datos_train <- datos[indices_train, 1:4] #PARA ENTRENAR
+datos_train <- datos[indices_train, 1:4] #PARA ENTRENAR el 120
 datos_test <- datos[-indices_train, 1:4] #datos prueba
-clase_train <- datos[indices_train, 5]
+clase_train <- datos[indices_train, 5] #el otro 20 %
 clase_test <- datos[-indices_train, 5]
 
 
@@ -67,3 +67,52 @@ class(clase_train)
 
 #Se crea el modelo de clasificación la función knn de la librería class
 #
+
+
+install.packages("class")
+library("class")
+
+#conjunto de entrenamiento
+#Conjunto de prueba
+#Clasificación del conjunto de entrenamient
+#El valor de K (cuantos vecinos)
+#k = cantidad de observaciones / 2 X
+#k = sqrt(cantidad de observaciones) es decir, raíz cuadrada de las observaciones
+# k se recomienda impar
+# el resultado de ejecutar knn es a clasificación de los vaores de entrenamiento
+clasificacion <- knn(datos_train, datos_test, clase_train, k = sqrt(nrow(datos))) #clasifici
+
+#ahora se deen comparar con os datos de prueba
+View(datos_test)
+datos_test_clasificacion <- datos_test
+
+#datos de prueba con la clasificación igual de prueba que realizo gracias knn, 
+#el 20% de prueba sacar su clasificación con esos datos
+datos_test_clasificacion$Clase <- clasificacion
+View(datos_test_clasificacion)
+
+install.packages("ggplot2")
+library("ggplot2")
+
+
+ggplot(datos_test_clasificacion,
+       aes(x=Sepal.Length, y=Sepal.Width, 
+           color=Clase,fill=Clase))+
+  geom_point(size=7)+
+  geom_text(aes(label=Clase)) + 
+  theme(legend.position = "none")
+
+#Verificar que tal hizo las casificaciones
+#Matriz de confusión
+#Tabla de tidis contra todos
+tab <- table(clasificacion, clase_test)
+diag(tab)
+rowSums(tab)
+
+#val.clasificados correctamente /total val.clasificados
+#accuracy
+#esto realmente te dice cuanto aprendió en número 
+accuracy <- function(tabla){
+  sum(diag(tabla) /sum(rowSums(tabla)))*100
+}
+accuracy(tab)
